@@ -10,4 +10,7 @@ https://github.com/Team997Coders/2020InfiniteRecharge.git
 
 Try to move all the spartanlib functions to the project level.
 
+Link to Spartanlib:
+https://github.com/feverittm/2021InfiniteRecharge.git
+
 
