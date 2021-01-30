@@ -10,7 +10,6 @@ import org.team997coders.spartanlib.controllers.SpartanPID;
 import org.team997coders.spartanlib.helpers.PIDConstants;
 import org.team997coders.spartanlib.helpers.SwerveMixerData;
 import org.team997coders.spartanlib.helpers.threading.SpartanRunner;
-import org.team997coders.spartanlib.limelight.LimeLight;
 import org.team997coders.spartanlib.motion.pathfollower.PathManager;
 import org.team997coders.spartanlib.motion.pathfollower.data.PathData;
 
