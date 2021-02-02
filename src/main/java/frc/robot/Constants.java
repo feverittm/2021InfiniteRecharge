@@ -2,8 +2,8 @@ package frc.robot;
 
 import java.util.HashMap;
 
-import org.team997coders.spartanlib.motion.pathfollower.data.PathData;
-import org.team997coders.spartanlib.motion.pathfollower.data.PathSwervePreloadedData;
+import frc.spartanlib.motion.pathfollower.PathData;
+import frc.spartanlib.motion.pathfollower.PathPreloadedData;
 
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import frc.robot.util.Gains;

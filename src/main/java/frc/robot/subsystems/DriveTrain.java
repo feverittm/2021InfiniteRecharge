@@ -3,13 +3,12 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.kauailabs.navx.frc.AHRS;
 
-import org.team997coders.spartanlib.commands.UpdateModule;
-import org.team997coders.spartanlib.helpers.SwerveMixerData;
-import org.team997coders.spartanlib.helpers.threading.SpartanRunner;
-import org.team997coders.spartanlib.limelight.LimeLight;
-import org.team997coders.spartanlib.motion.pathfollower.PathManager;
-import org.team997coders.spartanlib.swerve.SwerveDrive;
-import org.team997coders.spartanlib.swerve.module.SwerveModule;
+import frc.spartanlib.commands.UpdateModule;
+import frc.spartanlib.helpers.SwerveMixerData;
+import frc.spartanlib.helpers.threading.SpartanRunner;
+import frc.spartanlib.motion.pathfollower.PathManager;
+import frc.spartanlib.swerve.SwerveDrive;
+import frc.spartanlib.swerve.module.SwerveModule;
 
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;

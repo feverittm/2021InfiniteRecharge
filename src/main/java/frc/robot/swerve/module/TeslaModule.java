@@ -7,9 +7,9 @@ import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import org.team997coders.spartanlib.controllers.SpartanPID;
-import org.team997coders.spartanlib.math.Vector2;
-import org.team997coders.spartanlib.swerve.module.SwerveModule;
+import frc.spartanlib.controllers.SpartanPID;
+import frc.spartanlib.math.Vector2;
+import frc.spartanlib.swerve.module.SwerveModule;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.util.Gains;

@@ -6,12 +6,12 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.Set;
 
-import org.team997coders.spartanlib.controllers.SpartanPID;
-import org.team997coders.spartanlib.helpers.PIDConstants;
-import org.team997coders.spartanlib.helpers.SwerveMixerData;
-import org.team997coders.spartanlib.helpers.threading.SpartanRunner;
-import org.team997coders.spartanlib.motion.pathfollower.PathManager;
-import org.team997coders.spartanlib.motion.pathfollower.data.PathData;
+import frc.spartanlib.controllers.SpartanPID;
+import frc.spartanlib.helpers.PIDConstants;
+import frc.spartanlib.helpers.SwerveMixerData;
+import frc.spartanlib.helpers.threading.SpartanRunner;
+import frc.spartanlib.motion.pathfollower.PathManager;
+import frc.spartanlib.motion.pathfollower.data.PathData;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
