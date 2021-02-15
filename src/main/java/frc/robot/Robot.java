@@ -50,8 +50,6 @@ public class Robot extends TimedRobot {
     // CameraServer.getInstance().startAutomaticCapture(0);
     requestPaths();
 
-    LimeLight.getInstance().setDouble(LimeLight.LED_MODE, LimeLight.LEDState.ForceOff);
-
     CommandScheduler.getInstance().cancelAll();
 
     m_chooser.setDefaultOption("Do Nothing", new AutoDoNothing());
@@ -59,19 +57,10 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("s1ck0 m0d3", new AutoSickoMode());
     m_chooser.addOption("Shoot Balls", new AutoStreamUntilEmpty(Constants.Values.SHOOTER_RPM, true));
 
-    LimeLight.getInstance().mController = new SpartanPID(new PIDConstants(
-      Constants.Values.VISION_TURNING_P,
-      Constants.Values.VISION_TURNING_I,
-      Constants.Values.VISION_TURNING_D
-    ));
-
     Shooter.getInstance();
     Hopper.getInstance();
     DriveTrain.getInstance();
     DriveTrain.getInstance().setDefaultCommand(new SwerveMixer());
-    Climber.getInstance();
-
-    LEDManager.getInstance();
 
     OI.getInstance();
 
@@ -103,7 +92,7 @@ public class Robot extends TimedRobot {
 
     lastUpdate = getCurrentSeconds();
 
-    OI.getInstance().update();
+    //OI.getInstance().update();
   }
 
   @Override
@@ -111,14 +100,10 @@ public class Robot extends TimedRobot {
 
     DriveTrain.getInstance().setCoast();
 
-    LimeLight.getInstance().setDouble(LimeLight.LED_MODE, LimeLight.LEDState.ForceOff);
     Intake.getInstance().setPiston(false);
 
     if (mHopperCommand != null) mHopperCommand.cancel();
     mHopperCommand = new HopperAutoIndex();
-
-    LEDManager.getInstance().setColor(1, 0, 100);
-
   }
 
   @Override
@@ -151,8 +136,6 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-
-    LEDManager.getInstance().setColorToAlliance();
 
     mHopperCommand.schedule();
   }

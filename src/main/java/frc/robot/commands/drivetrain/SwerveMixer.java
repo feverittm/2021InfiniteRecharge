@@ -1,6 +1,6 @@
 package frc.robot.commands.drivetrain;
 
-import org.team997coders.spartanlib.helpers.SwerveMixerData;
+import frc.spartanlib.helpers.SwerveMixerData;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.OI;

@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.trajectory.Trajectory;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import org.team997coders.spartanlib.helpers.SwerveMixerData;
-import org.team997coders.spartanlib.motion.pathfollower.PathManager;
+import frc.spartanlib.helpers.SwerveMixerData;
+import frc.spartanlib.motion.pathfollower.PathManager;
 
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
@@ -30,7 +30,7 @@ public class FollowPath extends CommandBase {
     this.name = name;
     this.reverse = reverse;
 
-    SmartDashboard.putNumber("Paht" + name, 0);
+    SmartDashboard.putNumber("Path" + name, 0);
 
     addRequirements(DriveTrain.getInstance());
   }
@@ -41,7 +41,7 @@ public class FollowPath extends CommandBase {
 
     SmartDashboard.putString("Path '" + name + "' has Started", "");
 
-    // Get the trajectory here so you can initalize on startup and still allow it process the data
+    // Get the trajectory here so you can initialize on startup and still allow it process the data
     trajectory = PathManager.getInstance().getTrajectory(name);
 
     // Populate the first state before running

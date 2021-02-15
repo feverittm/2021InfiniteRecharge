@@ -2,7 +2,6 @@ package frc.robot;
 
 import frc.robot.commands.shooter.*;
 import frc.robot.subsystems.Intake;
-import frc.robot.commands.drivetrain.AutoFaceTargetAndDrive;
 import frc.robot.commands.hopper.*;
 
 import edu.wpi.first.wpilibj.XboxController;
@@ -53,7 +52,6 @@ public class OI {
 
     buttonStart.whenPressed(() -> Intake.getInstance().togglePiston());
 
-    buttonB.whileHeld(new AutoFaceTargetAndDrive());
     buttonRightBumper2.whileHeld(new ShooterBasic(1)/*new ShooterStream(Constants.Values.SHOOTER_RPM)*/);
     buttonLeftBumper2.whileHeld(new ShooterBasic(0.66));//7.5 /*new ShooterStreamAutoTarget(Constants.Values.SHOOTER_RPM)*/
 

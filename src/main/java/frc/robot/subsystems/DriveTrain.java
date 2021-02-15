@@ -48,18 +48,11 @@ public class DriveTrain extends SwerveDrive {
 
   public void resetGyro() { navx.reset(); }
 
-  public double getDistanceToTarget() { return (90.75 - Constants.Values.VISION_LIMELIGHT_HEIGHT) / (Math.tan( (Constants.Values.VISION_LIMELIGHT_ANGLE + LimeLight.getInstance().getDouble(LimeLight.TARGET_Y, 0)) * (Math.PI / 180) )); }
-
   @Override
   public void periodic() { }
 
   public void updateSmartDashboard() {
-    
-    SmartDashboard.putNumber("LimeLight/Target Distance (in)", getDistanceToTarget());
 
-    if (Robot.verbose) {
-
-    }
   }
 
   public void setCoast() {
