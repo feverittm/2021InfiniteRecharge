@@ -2,18 +2,10 @@ package frc.robot;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.Set;
 
-import frc.spartanlib.controllers.SpartanPID;
-import frc.spartanlib.helpers.PIDConstants;
-import frc.spartanlib.helpers.SwerveMixerData;
 import frc.spartanlib.helpers.threading.SpartanRunner;
 import frc.spartanlib.motion.pathfollower.PathManager;
 import frc.spartanlib.motion.pathfollower.data.PathData;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.*;

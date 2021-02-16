@@ -152,6 +152,7 @@ public final class Constants {
       "TrenchPivot"
     };
 
+    @SuppressWarnings("serial")
     public static final HashMap<String, PathData> PATH_DATA = new HashMap<String, PathData>() {{
       put("GoToPickup", new PathSwervePreloadedData("GoToPickup",
         new Rotation2d(0.0), new Rotation2d(0.0)));
