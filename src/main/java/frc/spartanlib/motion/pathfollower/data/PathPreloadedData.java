@@ -1,4 +1,4 @@
-package frc.spartanlib.motion.pathfollower;
+package frc.spartanlib.motion.pathfollower.data;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

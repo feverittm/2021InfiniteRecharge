@@ -12,7 +12,6 @@ import frc.spartanlib.swerve.module.SwerveModule;
 
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.swerve.module.TeslaModule;
@@ -39,10 +38,6 @@ public class DriveTrain extends SwerveDrive {
       SpartanRunner.UnlockThread();
     }
   }
-
-  public void stopOrchestra() { } //TODO
-
-  public void playOrchestra(String song) { } //TODO
 
   public double getGyroAngle() { return navx.getYaw(); }
 

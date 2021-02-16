@@ -11,8 +11,7 @@ import frc.spartanlib.helpers.PIDConstants;
 import frc.spartanlib.helpers.SwerveMixerData;
 import frc.spartanlib.helpers.threading.SpartanRunner;
 import frc.spartanlib.motion.pathfollower.PathManager;
-import frc.spartanlib.motion.pathfollower.PathData;
-
+import frc.spartanlib.motion.pathfollower.data.PathData;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -23,7 +22,6 @@ import frc.robot.commands.auto.*;
 import frc.robot.commands.drivetrain.*;
 import frc.robot.commands.hopper.*;
 
-import frc.robot.commands.shooter.ShootBadly;
 import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {

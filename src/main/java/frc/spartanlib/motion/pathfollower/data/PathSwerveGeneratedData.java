@@ -1,4 +1,4 @@
-package frc.spartanlib.motion.pathfollower;
+package frc.spartanlib.motion.pathfollower.data;
 
 import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;

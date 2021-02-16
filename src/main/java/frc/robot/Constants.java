@@ -2,9 +2,8 @@ package frc.robot;
 
 import java.util.HashMap;
 
-import frc.spartanlib.motion.pathfollower.PathData;
-import frc.spartanlib.motion.pathfollower.PathPreloadedData;
-
+import frc.spartanlib.motion.pathfollower.data.PathData;
+import frc.spartanlib.motion.pathfollower.data.PathSwervePreloadedData;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import frc.robot.util.Gains;
 
@@ -33,17 +32,6 @@ public final class Constants {
       INTAKE_IR = 0,
       SHOOTER_IR = 1,
       OVERFLOW_IR = 2,
-
-      //Drivetrain things
-      ultrasonicChannel = 4,
-
-      //climber things
-      climberMotorPort = 10,
-      climberPistonPort = 2,
-
-      //LEDs
-      LEDPORT = 9,
-      LEDCOUNT = 35,
 
       __end_of_ports__ = 0;
       
@@ -112,7 +100,7 @@ public final class Constants {
         CLIMBER_I = 0,
         CLIMBER_D = 0,
 
-        // To Seconds, To RPM Motorside, To RPM Wheelside, To Circumference, To Feet
+        // To Seconds, To RPM Motor side, To RPM Wheel side, To Circumference, To Feet
         DRIVE_VEL_2_FEET = 10 * (1.0 / 2048.0)
           * (9.0 / 70.0) * (4.875 * Math.PI) * (1.0 / 12.0);
 
