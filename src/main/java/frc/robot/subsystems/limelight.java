@@ -1,28 +1,41 @@
-package com.fearxzombie;
+package frc.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-/**
- * A class that creates objects to interface with the Limelight computer vision cameras.
- */
-public class limelight {
-  private String limelightName;
-  NetworkTableInstance getNT = NetworkTableInstance.getDefault();
-  private NetworkTable limelightNT;
 
 /**
- * An object that creates an interface with the Limelight series of vision cameras over the NetworkTables protocol.
+ * A class that creates objects to interface with the Limelight computer vision
+ * cameras.
  */
-  public limelight() {
-    limelightName = "limelight";
-    limelightNT = getNT.getTable(limelightName);
+public class Limelight {
+  private String LimelightName;
+  NetworkTableInstance getNT = NetworkTableInstance.getDefault();
+  private NetworkTable LimelightNT;
+
+  /**
+   * An object that creates an interface with the Limelight series of vision
+   * cameras over the NetworkTables protocol.
+   */
+  public Limelight() {
+    LimelightName = "Limelight";
+    LimelightNT = getNT.getTable(LimelightName);
   }
-/**
- * An object that creates an interface with the Limelight series of vision cameras over the NetworkTables protocol.
- */
-  public limelight(String name) {
-    limelightName = name;
-    limelightNT = getNT.getTable(limelightName);
+
+  /**
+   * An object that creates an interface with the Limelight series of vision
+   * cameras over the NetworkTables protocol.
+   */
+  public Limelight(String name) {
+    LimelightName = name;
+    LimelightNT = getNT.getTable(LimelightName);
+  }
+
+  private static Limelight instance;
+
+  public static Limelight getInstance() {
+    if (instance == null)
+      instance = new Limelight();
+    return instance;
   }
 
   /**
@@ -30,7 +43,7 @@ public class limelight {
    * 1 force off, 2 force blink, 3 force on
    */
   public void setLEDMode(double value) {
-    limelightNT.getEntry("ledMode").setNumber(value);
+    LimelightNT.getEntry("ledMode").setNumber(value);
   }
 
   /**
@@ -38,7 +51,7 @@ public class limelight {
    * (Increases exposure, disables vision processing)
    */
   public void setCAMMode(double value) {
-    limelightNT.getEntry("camMode").setNumber(value);
+    LimelightNT.getEntry("camMode").setNumber(value);
   }
 
   /**
@@ -47,7 +60,7 @@ public class limelight {
    * @param Pipeline number
    */
   public void setPipeline(double value) {
-    limelightNT.getEntry("pipeline").setNumber(value);
+    LimelightNT.getEntry("pipeline").setNumber(value);
   }
 
   /**
@@ -58,7 +71,7 @@ public class limelight {
    * lower-right corner of the secondary camera stream
    */
   public void setStreamMode(double value) {
-    limelightNT.getEntry("stream").setNumber(value);
+    LimelightNT.getEntry("stream").setNumber(value);
   }
 
   /**
@@ -67,7 +80,7 @@ public class limelight {
    * @return 1 if limelight target lock, 0 if no lock.
    */
   public double getTV() {
-    return limelightNT.getEntry("tv").getDouble(0);
+    return LimelightNT.getEntry("tv").getDouble(0);
   }
 
   /**
@@ -76,7 +89,7 @@ public class limelight {
    * @return (0-100)
    */
   public double getTA() {
-    return limelightNT.getEntry("ta").getDouble(0);
+    return LimelightNT.getEntry("ta").getDouble(0);
   }
 
   /**
@@ -85,7 +98,7 @@ public class limelight {
    * @return Horizontal Offset From Crosshair To Target (-29.8 to 29.8 degrees)
    */
   public double getTX() {
-    return limelightNT.getEntry("tx").getDouble(0);
+    return LimelightNT.getEntry("tx").getDouble(0);
   }
 
   /**
@@ -94,7 +107,7 @@ public class limelight {
    * @return Vertical Offset From Crosshair To Target (-24.85 to 24.85 degrees)
    */
   public double getTY() {
-    return limelightNT.getEntry("ty").getDouble(0);
+    return LimelightNT.getEntry("ty").getDouble(0);
   }
 
   /**
@@ -103,7 +116,7 @@ public class limelight {
    * @return pipeline
    */
   public double getPipeline() {
-    return limelightNT.getEntry("pipeline").getDouble(0);
+    return LimelightNT.getEntry("pipeline").getDouble(0);
   }
 
   /**
@@ -112,7 +125,7 @@ public class limelight {
    * @return 6 numbers: Translation (x,y,y) Rotation(pitch,yaw,roll)
    */
   public double getCameraTranslation() {
-    return limelightNT.getEntry("camtran").getDouble(0);
+    return LimelightNT.getEntry("camtran").getDouble(0);
   }
 
   /**
@@ -122,7 +135,7 @@ public class limelight {
    * @return value of key
    */
   public double get(String entry) {
-    return limelightNT.getEntry(entry).getDouble(0);
+    return LimelightNT.getEntry(entry).getDouble(0);
   }
 
   /**
@@ -132,37 +145,37 @@ public class limelight {
    * @return False if the table key already exists with a different type
    */
   public boolean setSnapshot(double value) {
-    return limelightNT.getEntry("snapshot").setValue(value);
+    return LimelightNT.getEntry("snapshot").setValue(value);
   }
 
   /**
-   * set() - Set any value outside what is currently provided in this library. 
-     Ex. If Limelight implements new values, this is a way to use them out of the box.
+   * set() - Set any value outside what is currently provided in this library. Ex.
+   * If Limelight implements new values, this is a way to use them out of the box.
    * 
    * @return False if the table key already exists with a different type
    * @param key to set, and value to set.
    */
   public boolean set(String entry, Double value) {
-    return limelightNT.getEntry(entry).setNumber(value);
+    return LimelightNT.getEntry(entry).setNumber(value);
   }
 
   /**
    * getDist() - calculates approximate distance from a fixed angled limelight to
    * the target.
    * 
-   * @param targetHeight = target height in meters
-   * @param limelightHeight = height of limelight from the ground in meters, 
-   * @param limelightAngle = angle in degrees of the limelight on the robot.
-   * @param debug = Enable printing current distance to console
+   * @param targetHeight    = target height in meters
+   * @param limelightHeight = height of limelight from the ground in meters,
+   * @param limelightAngle  = angle in degrees of the limelight on the robot.
+   * @param debug           = Enable printing current distance to console
    * @return approx distance in meters
    */
   public double getDist(double targetHeight, double limelightHeight, double limelightAngle, boolean debug) {
     double ll_radian = Math.toRadians(limelightAngle);
     double a2 = getTY();
     double currentDist = (Math.abs(targetHeight - limelightHeight) / Math.tan(ll_radian + a2));
-    if (debug == true){
-    System.out.println("limelight_library: Current distance to target is " + currentDist);
-    return currentDist;
+    if (debug == true) {
+      System.out.println("Limelight_library: Current distance to target is " + currentDist);
+      return currentDist;
     } else {
       return currentDist;
     }
