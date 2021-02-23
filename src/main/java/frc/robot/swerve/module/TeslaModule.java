@@ -19,10 +19,10 @@ public class TeslaModule extends SwerveModule<SpartanPID, TalonSRX, TalonFX> {
   public boolean enabled = true;
 
 // Milliseconds until I start complaining
-  private final double ALIGNMENT_TOLERANCE = 2.5; // Tolerance in degrees
+//  private final double ALIGNMENT_TOLERANCE = 2.5; // Tolerance in degrees
 
   private double mLastUpdate = Double.NaN;
-  private double mLastGoodAlignment;
+  //private double mLastGoodAlignment;
 
   public TeslaModule(int pID, int pAziID, int pDriID, int pEncoderID, double pEncoderZero, Gains pAziConsts, Gains pDriConsts) {
     super(pID, pEncoderID, pEncoderZero);

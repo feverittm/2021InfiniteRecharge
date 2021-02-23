@@ -10,11 +10,11 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.Constants;
-import frc.robot.Robot;
 
 public class Shooter implements Subsystem {
 
-  private CANSparkMax mMotor1, mMotor2;
+  private CANSparkMax mMotor1;
+  private CANSparkMax mMotor2;
   private CANPIDController mController;
   private CANEncoder mEncoder;
 
@@ -27,9 +27,6 @@ public class Shooter implements Subsystem {
 
     mMotor1.setIdleMode(IdleMode.kCoast);
     mMotor2.setIdleMode(IdleMode.kCoast);
-
-    //mMotor1.setInverted(true);
-    //mMotor2.setInverted(true);
 
     mMotor2.follow(mMotor1);
 
@@ -46,7 +43,12 @@ public class Shooter implements Subsystem {
   }
 
   private static Shooter instance;
-  public static Shooter getInstance() {if(instance == null) instance = new Shooter(); return instance;}
+
+  public static Shooter getInstance() {
+    if (instance == null)
+      instance = new Shooter();
+    return instance;
+  }
 
   public void setRPM(double RPM) {
     mController.setReference(RPM, ControlType.kVelocity);
@@ -60,11 +62,8 @@ public class Shooter implements Subsystem {
     mMotor1.set(0.0);
   }
 
-  public void updateSmartDashboard(){
+  public void updateSmartDashboard() {
     SmartDashboard.putNumber("Shooter/encoderspeed", getRPMs());
-    if (Robot.verbose) {
-      SmartDashboard.putNumber("Shooter/Ball Ejection Speed", getBallSpeed());
-    }
   }
 
   public double getRPMs() {
@@ -72,11 +71,9 @@ public class Shooter implements Subsystem {
   }
 
   public double getNeededBallVelocity(double distance) {
-    return (1 / (((Math.tan(Constants.Values.SHOOTER_RELEASE_ANGLE * (Math.PI / 180))) / (-4.9 * distance)) + ((2.49 - Constants.Values.SHOOTER_RELEASE_HEIGHT) / (4.9 * distance * distance)))) * (1 / Math.cos(Constants.Values.SHOOTER_RELEASE_ANGLE * (Math.PI / 180)));
-  }
-
-  public double getBallSpeed() {
-    return (getRPMs() / 60) * (Constants.Values.SHOOTER_CIRCUMFERENCE_CM / 100);
+    return (1 / (((Math.tan(Constants.Values.SHOOTER_RELEASE_ANGLE * (Math.PI / 180))) / (-4.9 * distance))
+        + ((2.49 - Constants.Values.SHOOTER_RELEASE_HEIGHT) / (4.9 * distance * distance))))
+        * (1 / Math.cos(Constants.Values.SHOOTER_RELEASE_ANGLE * (Math.PI / 180)));
   }
 
   @Override

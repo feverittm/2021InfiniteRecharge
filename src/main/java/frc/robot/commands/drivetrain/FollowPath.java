@@ -40,6 +40,7 @@ public class FollowPath extends CommandBase {
     startTime = (double) System.currentTimeMillis() / (double) 1000;
 
     SmartDashboard.putString("Path '" + name + "' has Started", "");
+    SmartDashboard.putBoolean("Reverse?", reverse);
 
     // Get the trajectory here so you can initialize on startup and still allow it process the data
     trajectory = PathManager.getInstance().getTrajectory(name);

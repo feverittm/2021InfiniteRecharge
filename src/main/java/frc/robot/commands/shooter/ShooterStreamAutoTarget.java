@@ -20,7 +20,7 @@ public class ShooterStreamAutoTarget extends CommandBase {
 
   @Override
   public void execute() {
-    double deltaT = System.currentTimeMillis() - mLastUpdate;
+    //double deltaT = System.currentTimeMillis() - mLastUpdate;
     //double output = LimeLight.getInstance().getPIDOutput(deltaT);
     //DriveTrain.getInstance().setMotors(-output, output);
 

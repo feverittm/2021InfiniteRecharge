@@ -65,9 +65,4 @@ public class MotionProcessor {
     double y = Math.pow(b.y - a.y, 2);
     return Math.sqrt(x + y);
   }
-
-  private double lerp(double a, double b, double t) {
-    return ((1 - t) * a) + (t * b);
-  }
-
 }
