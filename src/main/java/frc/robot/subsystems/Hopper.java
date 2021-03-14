@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -25,10 +25,10 @@ public class Hopper implements Subsystem {
   public int mBallCount = 3;
 
   private DigitalInput mIntakeIR, mOverflowIR, mShooterIR;
-  private VictorSPX mMotor1;
+  private WPI_VictorSPX mMotor1;
 
   private Hopper() {
-    mMotor1 = new VictorSPX(Constants.Ports.HOPPER_MOTOR_BOTTOM);
+    mMotor1 = new WPI_VictorSPX(Constants.Ports.HOPPER_MOTOR_BOTTOM);
     mIntakeIR = new DigitalInput(Constants.Ports.INTAKE_IR);
     mShooterIR = new DigitalInput(Constants.Ports.SHOOTER_IR);
     mOverflowIR = new DigitalInput(Constants.Ports.OVERFLOW_IR);

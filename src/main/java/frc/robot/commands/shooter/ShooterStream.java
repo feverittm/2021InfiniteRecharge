@@ -21,6 +21,7 @@ public class ShooterStream extends CommandBase {
 
   @Override
   public void execute() {
+    System.out.println("Shooter Stream, set RPM " + mTarget);
     Shooter.getInstance().setRPM(mTarget);
     if (eps(Shooter.getInstance().getRPMs(), mTarget, 80) && Hopper.getInstance().mBallCount > 0) {
       Hopper.getInstance().setSpeed(Constants.Values.HOPPER_STREAM_SPEED);
@@ -40,6 +41,7 @@ public class ShooterStream extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
+    System.out.println(" ... shooter stream stop");
     Shooter.getInstance().GoodStop();
     Hopper.getInstance().setSpeed(0.0);
   }

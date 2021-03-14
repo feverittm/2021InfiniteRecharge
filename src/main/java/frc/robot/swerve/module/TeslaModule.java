@@ -4,8 +4,8 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import frc.spartanlib.controllers.SpartanPID;
 import frc.spartanlib.helpers.PIDConstants;
@@ -14,7 +14,7 @@ import frc.spartanlib.swerve.module.SwerveModule;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class TeslaModule extends SwerveModule<SpartanPID, TalonSRX, TalonFX> {
+public class TeslaModule extends SwerveModule<SpartanPID, WPI_TalonSRX, WPI_TalonFX> {
 
   public boolean enabled = true;
 
@@ -27,8 +27,8 @@ public class TeslaModule extends SwerveModule<SpartanPID, TalonSRX, TalonFX> {
   public TeslaModule(int pID, int pAziID, int pDriID, int pEncoderID, double pEncoderZero, PIDConstants pAziConsts, PIDConstants pDriConsts) {
     super(pID, pEncoderID, pEncoderZero);
 
-    mAzimuth = new TalonSRX(pAziID);
-    mDrive = new TalonFX(pDriID);
+    mAzimuth = new WPI_TalonSRX(pAziID);
+    mDrive = new WPI_TalonFX(pDriID);
 
     mAzimuth.configFactoryDefault(10);
     mDrive.configFactoryDefault(10);
