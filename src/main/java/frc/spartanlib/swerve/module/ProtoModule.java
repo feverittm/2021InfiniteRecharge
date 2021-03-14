@@ -10,7 +10,6 @@ import frc.spartanlib.math.Vector2;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-// TODO: Update the proto module to match all the newly added additions from MerlinModule
 public class ProtoModule extends SwerveModule<MiniPID, VictorSPX, VictorSPX> {
 
   private final int ALIGNMENT_TIMEOUT = 1250; // Milliseconds until I start complaining

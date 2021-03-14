@@ -55,6 +55,7 @@ public class DriveTrain extends SwerveDrive {
 
   @Override
   public void periodic() {
+    updateSmartDashboard();
   }
 
   public void updateSmartDashboard() {

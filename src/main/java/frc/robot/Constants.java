@@ -2,6 +2,7 @@ package frc.robot;
 
 import java.util.HashMap;
 
+import frc.spartanlib.helpers.PIDConstants;
 import frc.spartanlib.motion.pathfollower.data.PathData;
 import frc.spartanlib.motion.pathfollower.data.PathSwervePreloadedData;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
@@ -26,7 +27,6 @@ public final class Constants {
       INTAKE_SOLENOID = 3,
 
       //Hopper things
-      HOPPER_MOTOR_TOP = 6,
       HOPPER_MOTOR_BOTTOM = 5,
 
       INTAKE_IR = 0,
@@ -115,20 +115,20 @@ public final class Constants {
       DRIVE_VELOCITY_GAINS = new Gains(0.6, 0.012, 6.8, 1023.0 / 21500.0),
       SHOOTER_VELOCITY_GAINS = new Gains(0.001, 0, 0.005, (1.0 / (4060.0 * (22.0 / 18.0) * 0.5)));
 
-    public static final Gains[]
+    public static final PIDConstants[]
 
       DRIVE_GAINS = {
-        new Gains(0.0, 0.0, 0.0, 0.0),
-        new Gains(0.0, 0.0, 0.0, 0.0),
-        new Gains(0.0, 0.0, 0.0, 0.0),
-        new Gains(0.0, 0.0, 0.0, 0.0)
+        new PIDConstants(0.0, 0.0, 0.0),
+        new PIDConstants(0.0, 0.0, 0.0),
+        new PIDConstants(0.0, 0.0, 0.0),
+        new PIDConstants(0.0, 0.0, 0.0)
       },
 
       AZIMUTH_GAINS = {
-        new Gains(0.01, 0.0, 0.0, 0.0),
-        new Gains(0.01, 0.0, 0.0, 0.0),
-        new Gains(0.01, 0.0, 0.0, 0.0),
-        new Gains(0.01, 0.0, 0.0, 0.0)
+        new PIDConstants(0.01, 0.0, 0.0),
+        new PIDConstants(0.01, 0.0, 0.0),
+        new PIDConstants(0.01, 0.0, 0.0),
+        new PIDConstants(0.01, 0.0, 0.0)
       };
       
     public static final int

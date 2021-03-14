@@ -25,46 +25,53 @@ public class Hopper implements Subsystem {
   public int mBallCount = 3;
 
   private DigitalInput mIntakeIR, mOverflowIR, mShooterIR;
-  private VictorSPX mMotor1, mMotor2;
-  
+  private VictorSPX mMotor1;
+
   private Hopper() {
-    mMotor1 = new VictorSPX(Constants.Ports.HOPPER_MOTOR_TOP);
-    mMotor2 = new VictorSPX(Constants.Ports.HOPPER_MOTOR_BOTTOM);
+    mMotor1 = new VictorSPX(Constants.Ports.HOPPER_MOTOR_BOTTOM);
     mIntakeIR = new DigitalInput(Constants.Ports.INTAKE_IR);
     mShooterIR = new DigitalInput(Constants.Ports.SHOOTER_IR);
     mOverflowIR = new DigitalInput(Constants.Ports.OVERFLOW_IR);
     mMotor1.configFactoryDefault(10);
-    mMotor2.configFactoryDefault(10);
 
     mMotor1.setNeutralMode(NeutralMode.Brake);
-    mMotor2.setNeutralMode(NeutralMode.Brake);
-
+    
     mMotor1.setInverted(true);
-    mMotor2.setInverted(true);
-    mMotor2.follow(mMotor1);
- 
-    SmartDashboard.putNumber("Driver/Set Ball Count", mBallCount); //Driver tab is stuff for drive team specifically to edit.
+
+    SmartDashboard.putNumber("Driver/Set Ball Count", mBallCount); // Driver tab is stuff for drive team specifically to
+                                                                   // edit.
     register();
   }
 
-  public void setSpeed(double speed){
+  public void setSpeed(double speed) {
     mMotor1.set(ControlMode.PercentOutput, speed);
   }
 
   /**
-   * Allows drivers to update the amount of balls in the hopper before the match starts.
+   * Allows drivers to update the amount of balls in the hopper before the match
+   * starts.
    */
   public void updateBallCount() {
-    mBallCount = (int)NetworkTableInstance.getDefault().getTable("SmartDashboard").getEntry("Driver/Set Ball Count").getDouble(3);
+    mBallCount = (int) NetworkTableInstance.getDefault().getTable("SmartDashboard").getEntry("Driver/Set Ball Count")
+        .getDouble(3);
   }
 
-  public boolean getShooterBall() { return !mShooterIR.get(); }
-  public boolean getIntakeBall() { return !mIntakeIR.get(); }
-  public boolean getOverflowBall() { return !mOverflowIR.get(); }
+  public boolean getShooterBall() {
+    return !mShooterIR.get();
+  }
+
+  public boolean getIntakeBall() {
+    return !mIntakeIR.get();
+  }
+
+  public boolean getOverflowBall() {
+    return !mOverflowIR.get();
+  }
 
   public void updateSmartDashboard(){
     
     SmartDashboard.putNumber("Hopper/Ball Count", mBallCount);
+    SmartDashboard.putBoolean("Hopper/Hopper Move", mMotor1.getMotorOutputPercent() > 10.0);
 
     if (Robot.verbose) {
       SmartDashboard.putBoolean("Hopper/Intake IR Sensor", getIntakeBall());
@@ -73,8 +80,15 @@ public class Hopper implements Subsystem {
   }
 
   @Override
-  public void periodic() { updateSmartDashboard(); }
+  public void periodic() {
+    updateSmartDashboard();
+  }
 
   private static Hopper instance;
-  public static Hopper getInstance() { if (instance == null) instance = new Hopper(); return instance; }
+
+  public static Hopper getInstance() {
+    if (instance == null)
+      instance = new Hopper();
+    return instance;
+  }
 }

@@ -15,6 +15,9 @@
     "**/*~": true
   },
   "cSpell.words": [
-    "navx"
+    "Lims",
+    "gamepad",
+    "navx",
+    "teleop"
   ]
 }
