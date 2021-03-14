@@ -65,13 +65,14 @@ public class Hopper implements Subsystem {
   }
 
   public boolean getOverflowBall() {
-    return !mOverflowIR.get();
+    //return !mOverflowIR.get();
+    return false;
   }
 
   public void updateSmartDashboard(){
     
     SmartDashboard.putNumber("Hopper/Ball Count", mBallCount);
-    SmartDashboard.putBoolean("Hopper/Hopper Move", mMotor1.getMotorOutputPercent() > 10.0);
+    SmartDashboard.putBoolean("Hopper/Hopper Move", Math.abs(mMotor1.getMotorOutputPercent()) > 0.0);
 
     if (Robot.verbose) {
       SmartDashboard.putBoolean("Hopper/Intake IR Sensor", getIntakeBall());

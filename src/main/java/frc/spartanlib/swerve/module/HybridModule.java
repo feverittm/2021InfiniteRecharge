@@ -95,7 +95,7 @@ public class HybridModule extends SwerveModule<MiniPID, WPI_TalonSRX, WPI_Victor
     mAzimuthController.setP(pP);
     mAzimuthController.setI(pI);
     mAzimuthController.setD(pD);
-    System.out.println(pD);
+    System.out.println("pD = " + pD);
   }
 
   @Override

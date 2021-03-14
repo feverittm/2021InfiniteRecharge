@@ -71,19 +71,19 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     
-    if (verbose) {
-      if (commandList.size() > 0) {
-        for (String cmdName : commandList) {
-          System.out.println("Ran " + cmdName + " on cycle " + cycles);
+    /*
+      if (verbose) {
+        if (commandList.size() > 0) {
+          for (String cmdName : commandList) {
+            System.out.println("Ran " + cmdName + " on cycle " + cycles);
+          }
         }
       }
-    }
+    */
     commandList.clear();
     cycles++;
 
     lastUpdate = getCurrentSeconds();
-
-    //OI.getInstance().update();
   }
 
   @Override

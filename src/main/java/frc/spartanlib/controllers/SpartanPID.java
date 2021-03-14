@@ -44,7 +44,7 @@ public class SpartanPID {
     double i = mI * intAccum;
     double d = mD * derivative;
 
-    System.out.println(intAccum);
+    //System.out.println(intAccum);
 
     return MathUtils.clamp(p + i + d, mMinOutput, mMaxOutput);
   }
