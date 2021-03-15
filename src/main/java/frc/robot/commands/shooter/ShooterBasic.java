@@ -9,18 +9,17 @@ public class ShooterBasic extends CommandBase {
 
   public ShooterBasic(double speed) {
     mSpeed = speed;
-
     addRequirements(Shooter.getInstance());
   }
 
   @Override
   public void execute() {
-    Shooter.getInstance().SetYeeterPercent(mSpeed);
+    Shooter.getInstance().SetShooterPercent(mSpeed);
   }
 
   @Override
   public void end(boolean interrupted) {
-    Shooter.getInstance().SetYeeterPercent(0.0);
+    Shooter.getInstance().SetShooterPercent(0.0);
   }
 
 }

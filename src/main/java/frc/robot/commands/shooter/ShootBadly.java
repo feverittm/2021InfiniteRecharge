@@ -21,7 +21,7 @@ public class ShootBadly extends CommandBase {
 
   @Override
   public void execute() {
-    Shooter.getInstance().SetYeeterPercent(1.0);
+    Shooter.getInstance().SetShooterPercent(1.0);
     if (mTrig1.get(false)) {
       mTrig2.trigger();
       Hopper.getInstance().setSpeed(1);
@@ -36,7 +36,7 @@ public class ShootBadly extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     Hopper.getInstance().setSpeed(0.0);
-    Shooter.getInstance().SetYeeterPercent(0.0);
+    Shooter.getInstance().SetShooterPercent(0.0);
   }
 
 }

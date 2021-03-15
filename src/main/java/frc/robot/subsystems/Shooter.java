@@ -54,7 +54,7 @@ public class Shooter implements Subsystem {
     mController.setReference(RPM, ControlType.kVelocity);
   }
 
-  public void SetYeeterPercent(double perc) {
+  public void SetShooterPercent(double perc) {
     mMotor1.set(perc);
   }
 

@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.intake.IntakeMove;
 
 public class OI {
-  private double axisPos;
   public XboxController gamepad1;
   private JoystickButton buttonA;
   // private JoystickButton buttonB;
@@ -53,7 +52,7 @@ public class OI {
   }
 
   public double getGamepad1Axis(int portNum) {
-    axisPos = gamepad1.getRawAxis(portNum);
+    double axisPos = gamepad1.getRawAxis(portNum);
     if (Math.abs(axisPos) < 0.05) {
       axisPos = 0;
     }
