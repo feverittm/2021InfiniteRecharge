@@ -28,7 +28,7 @@ public class Hopper implements Subsystem {
   private WPI_VictorSPX mMotor1;
 
   private Hopper() {
-    mMotor1 = new WPI_VictorSPX(Constants.Ports.HOPPER_MOTOR_BOTTOM);
+    mMotor1 = new WPI_VictorSPX(Constants.Ports.HOPPER_MOTOR);
     mIntakeIR = new DigitalInput(Constants.Ports.INTAKE_IR);
     mShooterIR = new DigitalInput(Constants.Ports.SHOOTER_IR);
     mOverflowIR = new DigitalInput(Constants.Ports.OVERFLOW_IR);
@@ -65,8 +65,7 @@ public class Hopper implements Subsystem {
   }
 
   public boolean getOverflowBall() {
-    //return !mOverflowIR.get();
-    return false;
+    return !mOverflowIR.get();
   }
 
   public void updateSmartDashboard(){

@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import frc.robot.Constants;
 
 /**
  * A class that creates objects to interface with the Limelight computer vision
@@ -169,10 +170,10 @@ public class Limelight {
    * @param debug           = Enable printing current distance to console
    * @return approx distance in meters
    */
-  public double getDist(double targetHeight, double limelightHeight, double limelightAngle, boolean debug) {
-    double ll_radian = Math.toRadians(limelightAngle);
+  public double getDist(double targetHeight, boolean debug) {
+    double ll_radian = Math.toRadians(Constants.Values.VISION_LIMELIGHT_ANGLE);
     double a2 = getTY();
-    double currentDist = (Math.abs(targetHeight - limelightHeight) / Math.tan(ll_radian + a2));
+    double currentDist = (Math.abs(Constants.Values.VISION_TARGET_HEIGHT - Constants.Values.VISION_LIMELIGHT_HEIGHT) / Math.tan(ll_radian + a2));
     if (debug == true) {
       System.out.println("Limelight_library: Current distance to target is " + currentDist);
       return currentDist;
@@ -180,4 +181,5 @@ public class Limelight {
       return currentDist;
     }
   }
+
 }

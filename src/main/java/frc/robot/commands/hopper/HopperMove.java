@@ -29,7 +29,7 @@ public class HopperMove extends CommandBase {
 
   @Override
   public void execute() {
-    System.out.println("HopperMove " + mSpeed + ", overflow status " + Hopper.getInstance().getOverflowBall());
+    System.out.println("HopperMove " + mSpeed);
     if (!Hopper.getInstance().getOverflowBall()) { Hopper.getInstance().setSpeed(mSpeed); }
   }
 

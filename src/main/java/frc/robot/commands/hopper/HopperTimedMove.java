@@ -41,7 +41,7 @@ public class HopperTimedMove extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     Hopper.getInstance().setSpeed(0.0);
-    if (interrupted) System.out.println("HopperTimedMove interuppted on cycle " + Robot.cycles);
+    if (interrupted) System.out.println("HopperTimedMove interrupted on cycle " + Robot.cycles);
   }
 
 }

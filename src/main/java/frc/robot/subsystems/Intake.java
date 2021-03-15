@@ -16,44 +16,37 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.Robot;
 
 public class Intake extends SubsystemBase {
 
   private Solenoid intakePiston;
-  private CANSparkMax mLeader, mFollower;
+  private CANSparkMax mMotor1;
   private CANEncoder encoder;
 
   private Intake() {
-    mLeader = new CANSparkMax(Constants.Ports.INTAKE_MOTOR_1, MotorType.kBrushless);
-    mFollower = new CANSparkMax(Constants.Ports.INTAKE_MOTOR_2, MotorType.kBrushless);
+    mMotor1 = new CANSparkMax(Constants.Ports.INTAKE_MOTOR, MotorType.kBrushless);
     intakePiston = new Solenoid(Constants.Ports.INTAKE_SOLENOID);
 
-    mLeader.restoreFactoryDefaults();
-    mFollower.restoreFactoryDefaults();
+    mMotor1.restoreFactoryDefaults();
 
-    mFollower.follow(mLeader, true);
+    encoder = mMotor1.getEncoder();
 
-    encoder = mLeader.getEncoder();
+    intakePiston.set(false); // intake position up into the robot
 
-    intakePiston.set(false);
-
-    mLeader.setSmartCurrentLimit(50);
-    mLeader.setIdleMode(IdleMode.kCoast);
-    mFollower.setSmartCurrentLimit(50);
-    mFollower.setIdleMode(IdleMode.kCoast);
+    mMotor1.setSmartCurrentLimit(50);
+    mMotor1.setIdleMode(IdleMode.kCoast);
 
     register();
   }
 
   public void setPercent(double percent) {
-    mLeader.set(percent);
+    mMotor1.set(percent);
   }
 
   public double getRPM() {
     return encoder.getVelocity();
   }
- 
+
   public void togglePiston() {
     intakePiston.set(!intakePiston.get());
   }
@@ -73,14 +66,17 @@ public class Intake extends SubsystemBase {
 
   public void updateSmartDashboard() {
     // if you put anything here make sure to register the subsystem.
-    
-    SmartDashboard.putNumber("Intake/RPMs", getRPM());
 
-    if (Robot.verbose) {
-      // put non-essential data here.
-    }
+    SmartDashboard.putNumber("Intake/RPMs", getRPM());
+    SmartDashboard.putBoolean("Intake/Intake Position", getPiston());
+
   }
 
   private static Intake instance;
-  public static Intake getInstance() { if (instance == null) instance = new Intake(); return instance; }
+
+  public static Intake getInstance() {
+    if (instance == null)
+      instance = new Intake();
+    return instance;
+  }
 }
