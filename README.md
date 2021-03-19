@@ -1,5 +1,5 @@
 # 2021InfiniteRecharge
-Update of last year's swerve drive robot to use the 2021WPILIB framework.
+Update of last year's swerve drive robot to use the 2021 WPILIB framework and to to update the Robots specifications based on game changes.
 
 https://github.com/Team997Coders/2020InfiniteRecharge.git
 
