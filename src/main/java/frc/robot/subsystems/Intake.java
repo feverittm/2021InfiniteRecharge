@@ -19,19 +19,19 @@ import frc.robot.Constants;
 
 public class Intake extends SubsystemBase {
 
-  private Solenoid intakePiston;
+  private Solenoid mIntakePiston;
   private CANSparkMax mMotor1;
   private CANEncoder encoder;
 
   private Intake() {
     mMotor1 = new CANSparkMax(Constants.Ports.INTAKE_MOTOR, MotorType.kBrushless);
-    intakePiston = new Solenoid(Constants.Ports.INTAKE_SOLENOID);
+    mIntakePiston = new Solenoid(Constants.Ports.INTAKE_SOLENOID);
 
     mMotor1.restoreFactoryDefaults();
 
     encoder = mMotor1.getEncoder();
 
-    intakePiston.set(false); // intake position up into the robot
+    mIntakePiston.set(false); // Default action is to pull intake up into the robot
 
     mMotor1.setSmartCurrentLimit(50);
     mMotor1.setIdleMode(IdleMode.kCoast);
@@ -48,15 +48,15 @@ public class Intake extends SubsystemBase {
   }
 
   public void togglePiston() {
-    intakePiston.set(!intakePiston.get());
+    mIntakePiston.set(!mIntakePiston.get());
   }
 
   public void setPiston(boolean extend) {
-    intakePiston.set(extend);
+    mIntakePiston.set(extend);
   }
 
   public boolean getPiston() {
-    return intakePiston.get();
+    return mIntakePiston.get();
   }
 
   @Override
@@ -65,11 +65,8 @@ public class Intake extends SubsystemBase {
   }
 
   public void updateSmartDashboard() {
-    // if you put anything here make sure to register the subsystem.
-
     SmartDashboard.putNumber("Intake/RPMs", getRPM());
     SmartDashboard.putBoolean("Intake/Intake Position", getPiston());
-
   }
 
   private static Intake instance;

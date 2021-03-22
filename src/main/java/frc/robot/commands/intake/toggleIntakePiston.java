@@ -10,9 +10,9 @@ package frc.robot.commands.intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 
-public class toggleIntakePiston extends CommandBase {
+public class ToggleIntakePiston extends CommandBase {
 
-  public toggleIntakePiston() {
+  public ToggleIntakePiston() {
     addRequirements(Intake.getInstance());
   }
 

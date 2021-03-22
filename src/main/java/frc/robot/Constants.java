@@ -18,19 +18,19 @@ public final class Constants {
   public static class Ports {
 
     public static final int
-
+      // Shooter definitions...
       SHOOTER_MOTOR_1 = 8, // NEO on SparkMax
       SHOOTER_MOTOR_2 = 9, // NEO on SparkMax
 
-      //Hopper things
+      //Hopper Motor...
       HOPPER_MOTOR = 5, // Two bag motors in parallel on a VictorSPX.
+      SHOOTER_IR = 1, // Digital Sensor to determine if a ball is up at the shooter.
+      OVERFLOW_IR = 2, // Digital Sensor at the bottom of the hopper when it first sees a ball.
 
       // Intake stuff...
       INTAKE_MOTOR = 7, // NEO on Intake
       INTAKE_SOLENOID = 3, // Single Solenoid, default action to pull up intake.
       INTAKE_IR = 0, // Digital IR interrupt Sensor to detect ball in the intake.
-      SHOOTER_IR = 1, // Digital Sensor to determine if a ball is up at the shooter.
-      OVERFLOW_IR = 2, // Digital Sensor at the bottom of the hopper when it first sees a ball.
 
       __end_of_ports__ = 0;
       
@@ -41,7 +41,7 @@ public final class Constants {
       },
 
       DRIVE_PORTS = {
-        13, 14, 15, 16
+        13, 14, 15, 16 
       },
 
       MODULE_ENCODERS = {
@@ -50,6 +50,11 @@ public final class Constants {
   }
 
   public static class Values {     
+
+    public static final double[]
+      MODULE_ZEROS = {
+        0.0, 0.0, 0.0, 0.0
+      };
 
     public static final double
 
@@ -70,11 +75,11 @@ public final class Constants {
         VISION_TOLERANCE = 1.5,
         VISION_TIMEOUT = 2000, //in ms
 
-        VISION_TARGET_HEIGHT = 90.25,
+        VISION_TARGET_HEIGHT = 90.25, // Height (inches) of the center port of the target from the ground.
         VISION_LIMELIGHT_HEIGHT = 40, //Height (inches) up from the ground of the center of the limelight. 
-        VISION_LIMELIGHT_ANGLE = 30,//Math.atan(2.5/1.75) * (180 / Math.PI), //angle the limelight is tilted at. In degrees up from the floor.
+        VISION_LIMELIGHT_ANGLE = 30, //Math.atan(2.5/1.75) * (180 / Math.PI), angle the limelight is tilted at. In degrees up from the floor.
 
-        INTAKE_IN = 0.6, //0.75 // percent speed to intake
+        INTAKE_IN = 0.6, // percent speed to intake
         INTAKE_EJECT = -0.5, // percent speed to outtake
         INTAKE_EXTEND_DELAY = 0.2, // seconds
 
@@ -91,22 +96,11 @@ public final class Constants {
         SHOOTER_CIRCUMFERENCE_CM = (10.16 * Math.PI), // cm
         SHOOTER_RELEASE_ANGLE = 80, // degrees up from horizontal
         SHOOTER_RELEASE_HEIGHT = 1.0612121212, // meters up from ground
-
-        CLIMBER_UP = 1,
-        CLIMBER_DOWN = -1,
-        CLIMBER_P = 0,
-        CLIMBER_I = 0,
-        CLIMBER_D = 0,
-
+        
         // To Seconds, To RPM Motor side, To RPM Wheel side, To Circumference, To Feet
         DRIVE_VEL_2_FEET = 10 * (1.0 / 2048.0)
           * (9.0 / 70.0) * (4.875 * Math.PI) * (1.0 / 12.0);
 
-    public static final double[]
-
-      MODULE_ZEROS = {
-        0.0, 0.0, 0.0, 0.0
-      };
 
     public static final Gains
 

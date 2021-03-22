@@ -39,6 +39,8 @@ public class DriveTrain extends SwerveDrive {
       Robot.mRunner.AddAction(new UpdateModule(mModules[i], this));
       SpartanRunner.UnlockThread();
     }
+
+    register();
   }
 
   public double getFullAngle() {

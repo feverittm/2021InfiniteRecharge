@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2021 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -25,26 +25,26 @@ public class Hopper implements Subsystem {
   public int mBallCount = 3;
 
   private DigitalInput mIntakeIR, mOverflowIR, mShooterIR;
-  private WPI_VictorSPX mMotor1;
+  private WPI_VictorSPX mHopper;
 
   private Hopper() {
-    mMotor1 = new WPI_VictorSPX(Constants.Ports.HOPPER_MOTOR);
+    mHopper = new WPI_VictorSPX(Constants.Ports.HOPPER_MOTOR);
     mIntakeIR = new DigitalInput(Constants.Ports.INTAKE_IR);
     mShooterIR = new DigitalInput(Constants.Ports.SHOOTER_IR);
     mOverflowIR = new DigitalInput(Constants.Ports.OVERFLOW_IR);
-    mMotor1.configFactoryDefault(10);
+    mHopper.configFactoryDefault(10);
 
-    mMotor1.setNeutralMode(NeutralMode.Brake);
+    mHopper.setNeutralMode(NeutralMode.Brake);
     
-    mMotor1.setInverted(true);
+    mHopper.setInverted(true);
 
     SmartDashboard.putNumber("Driver/Set Ball Count", mBallCount); // Driver tab is stuff for drive team specifically to
-                                                                   // edit.
+
     register();
   }
 
   public void setSpeed(double speed) {
-    mMotor1.set(ControlMode.PercentOutput, speed);
+    mHopper.set(ControlMode.PercentOutput, speed);
   }
 
   /**
@@ -56,24 +56,38 @@ public class Hopper implements Subsystem {
         .getDouble(3);
   }
 
+  /**
+   * Is there a ball in the shooter ready to fire?
+   * @return
+   */
   public boolean getShooterBall() {
     return !mShooterIR.get();
   }
 
+  /**
+   * Check if a ball is in the Intake ready to be pulled in?
+   * @return
+   */
   public boolean getIntakeBall() {
     return !mIntakeIR.get();
   }
 
+  /**
+   * Is there a ball at the bottom of the hopper?
+   * This allows us to sequence the balls in the hopper.  This means that we need to set up the sensor so that we only see
+   * one ball at a time.
+   * @return 
+   */
   public boolean getOverflowBall() {
     return !mOverflowIR.get();
   }
 
-  public void updateSmartDashboard(){
+  public void updateSmartDashboard() {
     
     SmartDashboard.putNumber("Hopper/Ball Count", mBallCount);
-    SmartDashboard.putBoolean("Hopper/Hopper Move", Math.abs(mMotor1.getMotorOutputPercent()) > 0.0);
-
+    
     if (Robot.verbose) {
+      SmartDashboard.putBoolean("Hopper/Hopper Move", Math.abs(mHopper.getMotorOutputPercent()) > 0.0);
       SmartDashboard.putBoolean("Hopper/Intake IR Sensor", getIntakeBall());
       SmartDashboard.putBoolean("Hopper/Shooter IR Sensor", getShooterBall());
     }

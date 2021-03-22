@@ -54,8 +54,8 @@ public class Shooter implements Subsystem {
     mController.setReference(RPM, ControlType.kVelocity);
   }
 
-  public void SetShooterPercent(double perc) {
-    mMotor1.set(perc);
+  public void SetShooterPercent(double percent) {
+    mMotor1.set(percent);
   }
 
   public void GoodStop() {
@@ -63,7 +63,7 @@ public class Shooter implements Subsystem {
   }
 
   public void updateSmartDashboard() {
-    SmartDashboard.putNumber("Shooter/encoderspeed", getRPMs());
+    SmartDashboard.putNumber("Shooter/Encoder Speed", getRPMs());
   }
 
   public double getRPMs() {
