@@ -52,6 +52,7 @@ public class Robot extends TimedRobot {
     DriveTrain.getInstance();
     DriveTrain.getInstance().setDefaultCommand(new SwerveMixer());
     Limelight.getInstance();
+    Intake.getInstance();
 
     OI.getInstance();
 

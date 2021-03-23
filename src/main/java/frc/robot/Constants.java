@@ -28,8 +28,8 @@ public final class Constants {
       OVERFLOW_IR = 2, // Digital Sensor at the bottom of the hopper when it first sees a ball.
 
       // Intake stuff...
-      INTAKE_MOTOR = 7, // NEO on Intake
-      INTAKE_SOLENOID = 3, // Single Solenoid, default action to pull up intake.
+      INTAKE_MOTOR = 10, // NEO on Intake
+      INTAKE_SOLENOID = 0, // Single Solenoid, default action to pull up intake.
       INTAKE_IR = 0, // Digital IR interrupt Sensor to detect ball in the intake.
 
       __end_of_ports__ = 0;
@@ -53,7 +53,7 @@ public final class Constants {
 
     public static final double[]
       MODULE_ZEROS = {
-        0.0, 0.0, 0.0, 0.0
+        0.98, 3.33, 1.18, 0.0
       };
 
     public static final double
